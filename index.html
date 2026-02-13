@@ -1,9 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Pookie</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Someone Special ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff5f9e, #ffc371);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    background: rgba(255,255,255,0.15);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.Dhyana {
+    font-size: 2em;
+    font-weight: bold;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 25px #ff004c, 0 0 40px #ff004c; }
+}
+
+button {
+    margin: 15px;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: white;
+    color: #ff4f81;
+}
+
+#noBtn {
+    background: #ff004c;
+    color: white;
+    position: absolute;
+}
+
+#finalMessage {
+    display: none;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 4s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
 </head>
-<body style="background-color:pink; text-align:center; margin-top:100px;">
-    <h1>IT WORKS 💖</h1>
+
+<body>
+
+<div class="container">
+    <h1>Hey <span class="name">HER NAME</span> ❤️</h1>
+    <h2>Will you be my Valentine?</h2>
+
+    <button id="yesBtn" onclick="sayYes()">Yes 😌</button>
+    <button id="noBtn" onmouseover="moveButton()">No 🙈</button>
+
+    <div id="finalMessage">
+        You just made me the happiest person alive 🥹💖 <br>
+        I promise to annoy you forever.
+    </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+function moveButton() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function sayYes() {
+    document.getElementById("finalMessage").style.display = "block";
+    startHearts();
+}
+
+function startHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }, 300);
+}
+</script>
+
 </body>
 </html>
