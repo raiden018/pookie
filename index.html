@@ -71,7 +71,7 @@ input{
 <!-- PASSWORD -->
 <div id="lock" class="screen active">
     <h2>Enter Password 💌</h2>
-    <input type="password" id="password" placeholder="31122025">
+    <input type="password" id="password" placeholder="00000000">
     <button onclick="unlock()">Unlock</button>
     <p id="error" style="color:red;"></p>
 </div>
@@ -88,7 +88,7 @@ input{
     but somewhere between our conversations, <br>
     you became my favorite part of the day. 💖 <br><br>
     Being around you feels calm, warm, and safe. <br>
-    So yeah… I’d really love to call <span id="herName">DHYANA</span> mine.
+    So yeah… I’d really love to call <span id="herName">you</span> mine.
     </h2>
     <button onclick="ask()">Continue</button>
 </div>
@@ -202,7 +202,7 @@ function runNo(){
 }
 
 /* DOUBLE CLICK DHYANA */
-document.getElementById("herName").addEventListener("dblclick",function(){
+document.getElementById("DHYANA").addEventListener("dblclick",function(){
     document.getElementById("secret").style.display="block";
     setTimeout(()=>{
         document.getElementById("secret").style.display="none";
