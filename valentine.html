@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> FOR DHYANA 💖</title>
+<title>For DHYANA 💖</title>
 
 <style>
 body{
@@ -11,12 +10,15 @@ body{
     font-family:Arial, sans-serif;
     overflow:hidden;
     text-align:center;
-    color:white;
+    color:ff2e8a;
+    text-shadow:0 0 10px #ff99cc, 0 0 20px #ff66b3;
+    font-weight:bold;
     animation:gradientShift 10s infinite alternate;
     background:linear-gradient(-45deg,#ff9ec4,#ffcce6,#ff80bf,#ffd6eb);
     background-size:400% 400%;
 }
 
+/* Gradient animation */
 @keyframes gradientShift{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
@@ -26,7 +28,7 @@ body{
 /* Floating background hearts */
 .bg-heart{
     position:absolute;
-    font-size:8vw;
+    font-size:20px;
     animation:floatUp 8s linear infinite;
     opacity:0.7;
 }
@@ -34,19 +36,6 @@ body{
 @keyframes floatUp{
     0%{transform:translateY(100vh) scale(1);}
     100%{transform:translateY(-10vh) scale(1.5);}
-}
-
-/* Floating messages */
-.float-msg{
-    position:absolute;
-    font-size:4vw;
-    opacity:0.8;
-    animation:floatMsg 6s linear forwards;
-}
-
-@keyframes floatMsg{
-    0%{transform:translateY(100vh);}
-    100%{transform:translateY(-10vh);}
 }
 
 .screen{
@@ -59,60 +48,47 @@ body{
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    padding:5vw;
+    padding:20px;
 }
 
 .active{ display:flex; }
 
 button{
-    padding:4vw 8vw;
-    font-size:4vw;
+    padding:12px 25px;
+    font-size:16px;
     border:none;
-    border-radius:10vw;
+    border-radius:25px;
     background:white;
     color:#ff4d88;
     cursor:pointer;
-    margin:2vw;
+    margin:10px;
     transition:0.3s;
-    min-width:30vw;
 }
 
 button:hover{ transform:scale(1.1); }
 
 input{
-    padding:2vw;
-    border-radius:5vw;
+    padding:10px;
+    border-radius:10px;
     border:none;
     text-align:center;
-    font-size:4vw;
 }
 
 .glowHeart{
-    font-size:15vw;
+    font-size:70px;
     cursor:pointer;
     animation:glow 1.5s infinite alternate;
 }
 
 @keyframes glow{
-    from{ text-shadow:0 0 5vw white; }
-    to{ text-shadow:0 0 10vw white, 0 0 15vw #ff4d88; }
-}
-
-.hoverGlow{
-    cursor:pointer;
-    animation: hoverGlow 1.5s infinite alternate;
-}
-
-@keyframes hoverGlow{
-    0%{color:white;}
-    50%{color:#ffe6f0;}
-    100%{color:white;}
+    from{ text-shadow:0 0 10px white; }
+    to{ text-shadow:0 0 40px white, 0 0 70px #ff4d88; }
 }
 
 #secret{
     display:none;
-    margin-top:3vw;
-    font-size:4vw;
+    margin-top:20px;
+    font-size:18px;
 }
 
 .vibrate{
@@ -126,25 +102,11 @@ input{
     75%{transform:translate(1px,-1px);}
     100%{transform:translate(1px,1px);}
 }
-
-/* Heart trail */
-.trail{
-    position:absolute;
-    font-size:4vw;
-    opacity:0.8;
-    pointer-events:none;
-    animation:trailAnim 0.8s forwards;
-}
-
-@keyframes trailAnim{
-    0%{opacity:1; transform:translate(0,0) scale(1);}
-    100%{opacity:0; transform:translate(-5vw,-8vh) scale(0.5);}
-}
 </style>
 </head>
 <body>
 
-<!-- Floating background hearts -->
+<!-- Floating hearts background -->
 <script>
 for(let i=0;i<20;i++){
     let h=document.createElement("div");
@@ -158,50 +120,47 @@ for(let i=0;i<20;i++){
 
 <!-- OPENING -->
 <div id="welcome" class="screen active">
-    <h1 class="hoverGlow">Hello Pookie 🎀</h1>
+    <h1>Hello Pookie 💖</h1>
     <button onclick="goLock()">Enter</button>
 </div>
 
 <!-- PASSWORD -->
 <div id="lock" class="screen">
-    <h2 class="hoverGlow">Enter Password 💌</h2>
-    <input type="password" id="password" placeholder="XXXXXXXX">
+    <h2>Enter Password 💌</h2>
+    <input type="password" id="password" placeholder="00000000">
     <button onclick="unlock()">Unlock</button>
     <p id="error"></p>
-    <button onclick="back('welcome')">Back</button>
 </div>
 
 <!-- HEART GAME -->
 <div id="gameScreen" class="screen">
-    <h2 class="hoverGlow">Click 5 Hearts 💖</h2>
-    <button onclick="back('lock')">Back</button>
+    <h2>Click 5 Hearts 💖</h2>
 </div>
 
 <!-- MESSAGE -->
 <div id="intro" class="screen">
-    <h2 style="font-size:4vw">
+    <h2>
     I don’t know when it happened… <br><br>
-    but somewhere between our conversations, <span class="hoverGlow" onclick="miniSecret('You always make me smile 😊')">you became my favorite part</span> of the day. 💖 <br><br>
+    but somewhere between our conversations, <br>
+    you became my favorite part of the day. 💖 <br><br>
     Being around you feels calm, warm, and safe. <br>
     So yeah… I’d really love to call you mine. <br><br>
-      🎀I LOVE YOU DHYANA🎀
+       💖 I LOVE YOU POOKIE 💖
     </h2>
     <button onclick="ask()">Continue</button>
-    <button onclick="back('gameScreen')">Back</button>
 </div>
 
 <!-- QUESTION -->
 <div id="question" class="screen">
-    <h2 class="hoverGlow">Will you be my Valentine? 💖</h2>
+    <h2>Will you be my Valentine? 💖</h2>
     <button onclick="yes()">Yes</button>
     <button id="noBtn" onclick="runNo()">No</button>
     <p id="drama"></p>
-    <button onclick="back('intro')">Back</button>
 </div>
 
 <!-- YES -->
 <div id="yesScreen" class="screen">
-    <h2 style="font-size:4vw">
+    <h2>
     You just unlocked lifetime access to me. 😌💖 <br><br>
     Free subscription includes:<br>
     - Random good morning texts<br>
@@ -213,37 +172,27 @@ for(let i=0;i<20;i++){
 
     <div class="glowHeart" onclick="showSecret()">💖</div>
     <div id="secret">
-        I cried that day because I realised how much you matter.<br>
-      you literally mean the world to me❤️
+        I cried that day because I realised how much you matter.
     </div>
-    <button onclick="back('question')">Back</button>
 </div>
 
 <!-- NO -->
 <div id="noScreen" class="screen">
-    <h2 style="font-size:4vw">
+    <h2>
     That’s okay.<br><br>
     I just wanted to be honest about how I feel.<br>
     You still mean a lot to me,<br>
-    and I’m grateful you’re in my life, <br>
-      i'll aklways be there...... waiting for you.....
+    and I’m grateful you’re in my life.
     </h2>
-    <button onclick="back('question')">Back</button>
 </div>
 
 <script>
 let heartsClicked=0;
 let noCount=0;
-let comboSequence = []; // for secret heart combo
-const secretCombo = [1,3,2,5,4]; // random combo example
 
 function switchScreen(hide,show){
     document.getElementById(hide).classList.remove("active");
     document.getElementById(show).classList.add("active");
-}
-
-function back(screenId){
-    switchScreen(document.querySelector('.screen.active').id, screenId);
 }
 
 function goLock(){
@@ -254,7 +203,6 @@ function unlock(){
     if(document.getElementById("password").value==="31122025"){
         switchScreen("lock","gameScreen");
         createHearts();
-        floatingMessages();
     } else {
         document.getElementById("error").innerText="Wrong date 👀";
     }
@@ -269,13 +217,9 @@ function createHearts(){
         heart.style.left=Math.random()*80+"%";
         heart.style.cursor="pointer";
 
-        let index = i+1;
-        heart.onclick=function(e){
-            heartsClicked++;
-            comboSequence.push(index);
-            createTrail(e.pageX, e.pageY);
+        heart.onclick=function(){
             heart.remove();
-            checkCombo();
+            heartsClicked++;
             if(heartsClicked===5){
                 switchScreen("gameScreen","intro");
             }
@@ -284,46 +228,12 @@ function createHearts(){
     }
 }
 
-function checkCombo(){
-    if(comboSequence.length>=5){
-        let correct = comboSequence.slice(-5).every((val,i)=> val===secretCombo[i]);
-        if(correct){
-            miniSecret("🎉 Secret combo unlocked! 🎉");
-        }
-    }
-}
-
-function createTrail(x, y){
-    for(let i=0;i<5;i++){
-        let t=document.createElement("div");
-        t.innerHTML=["💖","✨","💫"][Math.floor(Math.random()*3)];
-        t.className="trail";
-        t.style.left=x+Math.random()*10-5+"px";
-        t.style.top=y+Math.random()*10-5+"px";
-        document.body.appendChild(t);
-        setTimeout(()=>t.remove(),800);
-    }
-}
-
-function floatingMessages(){
-    setInterval(()=>{
-        let msg=document.createElement("div");
-        msg.className="float-msg";
-        msg.innerHTML=["💌 love you","🥰","💖","🌸"][Math.floor(Math.random()*4)];
-        msg.style.left=Math.random()*90+"%";
-        msg.style.top="100%";
-        document.body.appendChild(msg);
-        setTimeout(()=>msg.remove(),6000);
-    },800);
-}
-
 function ask(){
     switchScreen("intro","question");
 }
 
 function yes(){
     switchScreen("question","yesScreen");
-    confettiBlast();
 }
 
 function runNo(){
@@ -332,15 +242,23 @@ function runNo(){
 
     if(noCount<=10){
         btn.classList.add("vibrate");
+
         btn.style.position="absolute";
         btn.style.top=Math.random()*80+"%";
         btn.style.left=Math.random()*80+"%";
         btn.style.transform="scale("+(1-noCount*0.07)+")";
 
         document.getElementById("drama").innerText=
-        ["Are you sure? 🥺","Think again 😭","Don’t break my heart","Be nice 😔",
-        "Still no?","Come onnn","You’re hurting me","Last chance 👀",
-        "Okay okay wait","Fine… I tried."][noCount-1];
+        ["Are you sure? 🥺",
+         "Think again 😭",
+         "Don’t break my heart",
+         "Be nice 😔",
+         "Still no?",
+         "Come onnn",
+         "You’re hurting me",
+         "Last chance 👀",
+         "Okay okay wait",
+         "Fine… I tried."][noCount-1];
     }
 
     if(noCount===11){
@@ -353,29 +271,21 @@ function showSecret(){
     confettiBlast();
 }
 
+/* Confetti */
 function confettiBlast(){
-    for(let i=0;i<50;i++){
+    for(let i=0;i<40;i++){
         let c=document.createElement("div");
-        c.innerHTML=["💖","✨","💫","🌸"][Math.floor(Math.random()*4)];
+        c.innerHTML="✨";
         c.style.position="absolute";
         c.style.left="50%";
         c.style.top="50%";
-        c.style.fontSize=(6+Math.random()*6)+"vw";
-        c.style.transform=`translate(${Math.random()*80-40}vw,${Math.random()*80-40}vh)`;
+        c.style.fontSize="20px";
+        c.style.transform=`translate(${Math.random()*400-200}px,${Math.random()*400-200}px)`;
         document.body.appendChild(c);
-        setTimeout(()=>c.remove(),1500);
+        setTimeout(()=>c.remove(),1000);
     }
 }
-
-function miniSecret(text){
-    let s=document.createElement("div");
-    s.className="float-msg";
-    s.innerHTML=text;
-    s.style.left=Math.random()*80+"%";
-    s.style.top="50%";
-    document.body.appendChild(s);
-    setTimeout(()=>s.remove(),4000);
-}
 </script>
+
 </body>
 </html>
