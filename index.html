@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> DHYANA 💖</title>
+<title>DHYANA 💖</title>
 
 <style>
 body{
@@ -11,9 +11,9 @@ body{
     font-family:Arial, sans-serif;
     overflow:hidden;
     text-align:center;
-    color:white;
+    color:black;
     animation:gradientShift 10s infinite alternate;
-    background:linear-gradient(-45deg,#ff9ec4,#ffcce6,#ff80bf,#ffd6eb);
+    background:linear-gradient(-45deg,#ff9ec4,#ff80bf,#ffb6da,#ffcce6);
     background-size:400% 400%;
 }
 
@@ -75,6 +75,7 @@ button{
     margin:2vw;
     transition:0.3s;
     min-width:30vw;
+    box-shadow: 0 0 10px #ff4d88, 0 0 20px #ff99c8;
 }
 
 button:hover{ transform:scale(1.1); }
@@ -85,12 +86,17 @@ input{
     border:none;
     text-align:center;
     font-size:4vw;
+    box-shadow: 0 0 10px #ff4d88, 0 0 20px #ff99c8;
+    background:rgba(255,255,255,0.2);
+    color:white;
 }
 
+/* Glowing heart */
 .glowHeart{
     font-size:15vw;
     cursor:pointer;
     animation:glow 1.5s infinite alternate;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4d88, 0 0 30px #ff99c8;
 }
 
 @keyframes glow{
@@ -101,12 +107,17 @@ input{
 .hoverGlow{
     cursor:pointer;
     animation: hoverGlow 1.5s infinite alternate;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4d88, 0 0 30px #ff99c8;
 }
 
 @keyframes hoverGlow{
     0%{color:white;}
     50%{color:#ffe6f0;}
     100%{color:white;}
+}
+
+h1, h2{
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4d88, 0 0 30px #ff99c8;
 }
 
 #secret{
@@ -165,7 +176,7 @@ for(let i=0;i<20;i++){
 <!-- PASSWORD -->
 <div id="lock" class="screen">
     <h2 class="hoverGlow">Enter Password 💌</h2>
-    <input type="password" id="password" placeholder="00000000">
+    <input type="password" id="password" placeholder="XXXXXXXX">
     <button onclick="unlock()">Unlock</button>
     <p id="error"></p>
     <button onclick="back('welcome')">Back</button>
@@ -183,8 +194,8 @@ for(let i=0;i<20;i++){
     I don’t know when it happened… <br><br>
     but somewhere between our conversations, <span class="hoverGlow" onclick="miniSecret('You always make me smile 😊')">you became my favorite part</span> of the day. 💖 <br><br>
     Being around you feels calm, warm, and safe. <br>
-    So yeah… I’d really love to call you mine. <br> <br>
-       🎀 I LOVE YOU DHYANA 🎀
+    So yeah… I’d really love to call you mine.<br><br>
+       ❤️ I LOVE YOU DHYANA ❤️
     </h2>
     <button onclick="ask()">Continue</button>
     <button onclick="back('gameScreen')">Back</button>
@@ -213,8 +224,7 @@ for(let i=0;i<20;i++){
 
     <div class="glowHeart" onclick="showSecret()">💖</div>
     <div id="secret">
-        I cried that day because I realised how much you matter.<br>
-        You literally mean the world to me ❤️
+        I cried that day because I realised how much you matter.
     </div>
     <button onclick="back('question')">Back</button>
 </div>
@@ -225,8 +235,8 @@ for(let i=0;i<20;i++){
     That’s okay.<br><br>
     I just wanted to be honest about how I feel.<br>
     You still mean a lot to me,<br>
-    and I’m grateful you’re in my life. <br> <br>
-        IDK why but......i will be waiting for that someday.....
+    and I’m grateful you’re in my life.<br>
+    No presssure on you but...... let me wait, please ?
     </h2>
     <button onclick="back('question')">Back</button>
 </div>
@@ -234,8 +244,8 @@ for(let i=0;i<20;i++){
 <script>
 let heartsClicked=0;
 let noCount=0;
-let comboSequence = []; // for secret heart combo
-const secretCombo = [1,3,2,5,4]; // random combo example
+let comboSequence = [];
+const secretCombo = [1,3,2,5,4];
 
 function switchScreen(hide,show){
     document.getElementById(hide).classList.remove("active");
@@ -336,7 +346,6 @@ function runNo(){
         btn.style.top=Math.random()*80+"%";
         btn.style.left=Math.random()*80+"%";
         btn.style.transform="scale("+(1-noCount*0.07)+")";
-
         document.getElementById("drama").innerText=
         ["Are you sure? 🥺","Think again 😭","Don’t break my heart","Be nice 😔",
         "Still no?","Come onnn","You’re hurting me","Last chance 👀",
